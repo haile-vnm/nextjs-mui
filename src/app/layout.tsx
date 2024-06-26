@@ -25,7 +25,7 @@ export const metadata: Metadata = {
               <div>
                 <NavbarMenu></NavbarMenu>
               </div>
-              <Box sx={{ width: '100%' }} paddingX={22}>
+              <Box sx={{ width: '100%' }} paddingX={22} paddingY={4}>
                 {children}
               </Box>
             </ThemeProvider>

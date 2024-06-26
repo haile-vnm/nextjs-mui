@@ -14,11 +14,13 @@ interface StyledTabProps {
   value: string;
 }
 
-const NavbarTabs = styled(Tabs)({
-  minHeight: 'unset',
-  '& .MuiTabs-indicator': {
-    backgroundColor: '#7f0000',
-  },
+const NavbarTabs = styled(Tabs)(({ theme}) => {
+  return {
+    minHeight: 'unset',
+    '& .MuiTabs-indicator': {
+      backgroundColor: theme.palette.primary.main,
+    },
+  }
 });
 
 const NavbarTab = styled((props: StyledTabProps) => <Tab disableRipple {...props} />)(
