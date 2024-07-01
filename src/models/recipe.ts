@@ -1,8 +1,15 @@
 export interface Recipe {
+  id: string;
   title: string;
   desc: string;
-  category: { title: string; }
-  subcategory: { title: string; }
+  category: {
+    id: string;
+    title: string;
+  };
+  subcategory: {
+    id: string;
+    title: string;
+  };
   coverImage: string;
   yield: {
     amount: number;

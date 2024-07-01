@@ -21,13 +21,18 @@ export default async function ReceiptDetail({ params }: { params: { id: string }
       underline="hover"
       key="2"
       color="inherit"
-      href="/material-ui/getting-started/installation/"
+      href={`/categories/${recipe.category.id}`}
     >
       {recipe.category.title}
     </Link>,
-    <Typography key="3" color="text.primary">
+    <Link
+      underline="hover"
+      key="2"
+      color="inherit"
+      href={`/categories/${recipe.subcategory.id}`}
+    >
       {recipe.subcategory.title}
-    </Typography>,
+    </Link>
   ];
 
   return <>

@@ -1,3 +1,3 @@
-export default function  Receipts() {
+export default function Receipts() {
   return <>works</>
 }
