@@ -77,10 +77,10 @@ export default async function ReceiptDetail({ params }: { params: { id: string }
           <Box display={'flex'} justifyContent={'flex-end'} gap={1}>
             <Box>
               <Button variant={'outlined'} size={'small'} color={'primary'} className='!mr-2 !mb-2'>
-                <Add></Add> Save Recipe
+                <Add></Add>&nbsp;Save Recipe
               </Button>
               <Button variant={'outlined'} size={'small'} color={'primary'} className='!mb-2'>
-                <LocalPrintshopOutlined></LocalPrintshopOutlined> Print
+                <LocalPrintshopOutlined></LocalPrintshopOutlined>&nbsp;Print
               </Button>
             </Box>
           </Box>
