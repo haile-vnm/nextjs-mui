@@ -1,3 +1,5 @@
+import PrintRecipe from '@/components/recipe/print-recipe';
+import SaveRecipe from '@/components/recipe/save-recipe';
 import Button from '@/components/ui/button';
 import { Recipe } from '@/models/recipe';
 import {
@@ -76,12 +78,10 @@ export default async function ReceiptDetail({ params }: { params: { id: string }
           </Box>
           <Box display={'flex'} justifyContent={'flex-end'} gap={1}>
             <Box>
-              <Button variant={'outlined'} size={'small'} color={'primary'} className='!mr-2 !mb-2'>
-                <Add></Add>&nbsp;Save Recipe
-              </Button>
-              <Button variant={'outlined'} size={'small'} color={'primary'} className='!mb-2'>
-                <LocalPrintshopOutlined></LocalPrintshopOutlined>&nbsp;Print
-              </Button>
+              <SaveRecipe recipe={recipe}></SaveRecipe>
+            </Box>
+            <Box>
+              <PrintRecipe recipe={recipe}></PrintRecipe>
             </Box>
           </Box>
         </Box>
