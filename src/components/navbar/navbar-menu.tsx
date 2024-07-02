@@ -46,7 +46,7 @@ const NavbarTab = styled((props: StyledTabProps) => <Tab disableRipple {...props
 );
 
 const TAB_SUBMENUS: Record<string, NavbarSubmenuItem[]> = {
-  '/receipts': [
+  '/recipes': [
     { title: 'Categories', link: '/receipts/categories' },
     { title: 'Collections', link: '/receipts/collections' },
     { title: 'Resources', link: '/receipts/resources' }
@@ -94,7 +94,7 @@ export default function NavbarMenu() {
         onChange={handleChange}
       >
         <NavbarTab value="/shop" label="Shop"/>
-        <NavbarTab value="/receipts" label="Receipts" />
+        <NavbarTab value="/recipes" label="Recipes" />
         <NavbarTab value="/learn" label="Learn" />
         <NavbarTab value="/about" label="About" />
         <NavbarTab value="/blog" label="Blog" />

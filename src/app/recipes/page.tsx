@@ -30,7 +30,7 @@ export default async function  Receipts() {
                 </Typography>
               </CardContent>
               <CardActions sx={{ marginTop: 'auto' }}>
-                <Link href={`/receipts/${recipe.id}`}>
+                <Link href={`/recipes/${recipe.id}`}>
                   <Button size="small">Learn More</Button>
                 </Link>
               </CardActions>
