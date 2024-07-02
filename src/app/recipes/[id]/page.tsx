@@ -8,7 +8,7 @@ import {
   LocalPrintshopOutlined,
   ScatterPlot
 } from '@mui/icons-material';
-import { Box, Breadcrumbs, Divider, Link, Typography } from '@mui/material';
+import { Box, Breadcrumbs, Divider, Grid, Link, Typography } from '@mui/material';
 import Image from 'next/image';
 
 export default async function ReceiptDetail({ params }: { params: { id: string }}) {
@@ -38,57 +38,61 @@ export default async function ReceiptDetail({ params }: { params: { id: string }
   ];
 
   return <>
-    <div className='grid grid-cols-2 gap-6'>
-      <Box>
-        <Breadcrumbs separator="›" aria-label="breadcrumb">
-          {breadcrumbs}
-        </Breadcrumbs>
-        <Typography variant={'h4'}>{recipe.title}</Typography>
-        <Box marginTop={4}>
-          { recipe.desc }
-        </Box>
+    <Grid container spacing={4} width={'100%'}>
+      <Grid item xs={12} md={6}>
+        <Box>
+          <Breadcrumbs separator="›" aria-label="breadcrumb">
+            {breadcrumbs}
+          </Breadcrumbs>
+          <Typography variant={'h4'}>{recipe.title}</Typography>
+          <Box marginTop={4}>
+            { recipe.desc }
+          </Box>
 
-        <Box display={'flex'} marginY={2} fontWeight={500}>
-          <Box display={'flex'} marginRight={1}>
-            <AccessTimeOutlined fontSize={'large'}></AccessTimeOutlined>
-          </Box>
-          <Box display={'flex'} gap={3}>
-            {
-              recipe.steps.map((step, index) => (<Box key={index}>
-                <p className='uppercase text-xs'>{step.title}</p>
-                <p>{step.durationMin}</p>
-              </Box>))
-            }
-          </Box>
-        </Box>
-        <Divider></Divider>
-        <Box display={'flex'} marginY={1} fontWeight={500} justifyContent={'space-between'}>
-          <Box display={'flex'}>
+          <Box display={'flex'} marginY={2} fontWeight={500}>
             <Box display={'flex'} marginRight={1}>
-              <ScatterPlot fontSize={'large'}></ScatterPlot>
+              <AccessTimeOutlined fontSize={'large'}></AccessTimeOutlined>
             </Box>
-            <Box>
-              <p className='uppercase text-xs'>Yeild</p>
-              <p>
-                {
-                  recipe.yield.map(item => [item.amount, item.title].join(' ')).join(', ')
-                }
-              </p>
+            <Box display={'flex'} gap={3}>
+              {
+                recipe.steps.map((step, index) => (<Box key={index}>
+                  <p className='uppercase text-xs'>{step.title}</p>
+                  <p>{step.durationMin}</p>
+                </Box>))
+              }
             </Box>
           </Box>
-          <Box display={'flex'} justifyContent={'flex-end'} gap={1}>
-            <Box>
-              <SaveRecipe recipe={recipe}></SaveRecipe>
+          <Divider></Divider>
+          <Box display={'flex'} marginY={1} fontWeight={500} justifyContent={'space-between'}>
+            <Box display={'flex'}>
+              <Box display={'flex'} marginRight={1}>
+                <ScatterPlot fontSize={'large'}></ScatterPlot>
+              </Box>
+              <Box>
+                <p className='uppercase text-xs'>Yeild</p>
+                <p>
+                  {
+                    recipe.yield.map(item => [item.amount, item.title].join(' ')).join(', ')
+                  }
+                </p>
+              </Box>
             </Box>
-            <Box>
-              <PrintRecipe recipe={recipe}></PrintRecipe>
+            <Box display={'flex'} justifyContent={'flex-end'} gap={1} flexWrap={'wrap'}>
+              <Box>
+                <SaveRecipe recipe={recipe}></SaveRecipe>
+              </Box>
+              <Box>
+                <PrintRecipe recipe={recipe}></PrintRecipe>
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Box>
-      <Box>
-        <Image src={recipe.coverImage} width={500} height={0} alt={recipe.title}></Image>
-      </Box>
-    </div>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Box>
+          <Image src={recipe.coverImage} width={500} height={0} alt={recipe.title}></Image>
+        </Box>
+      </Grid>
+    </Grid>
   </>
 }
