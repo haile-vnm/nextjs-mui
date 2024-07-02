@@ -8,6 +8,7 @@ import NavbarSubmenu, { NavbarSubmenuItem } from './navbar-submenu';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ROOT_LAYOUT_PADDING_X } from '@/app/utils/layout';
 
 interface StyledTabProps {
   label: string;
@@ -64,6 +65,7 @@ const TAB_SUBMENUS: Record<string, NavbarSubmenuItem[]> = {
     { title: 'Item blog', link: 'blog' }
   ],
 }
+const LOGO_WIDTH = 50;
 export default function NavbarMenu() {
   const [tab, setTab] = useState('/shop');
   const [submenus, setSubmenus] = useState<NavbarSubmenuItem[]>([]);
@@ -88,7 +90,7 @@ export default function NavbarMenu() {
   }
 
   return (<Box position={'relative'}>
-    <Box sx={{ width: '100%' }} paddingX={20} paddingY={1}>
+    <Box sx={{ width: '100%', padding: { xs: `16px ${ROOT_LAYOUT_PADDING_X.xs + LOGO_WIDTH}px`, md: `16px ${ROOT_LAYOUT_PADDING_X.md + LOGO_WIDTH}px` }  }}>
       <NavbarTabs
         value={tab}
         onChange={handleChange}
@@ -101,14 +103,14 @@ export default function NavbarMenu() {
       </NavbarTabs>
     </Box>
     { submenus.length
-        ? (<Box bgcolor={'#f8f5f0'} paddingLeft={20} left={0}>
+        ? (<Box sx={{ bgcolor: '#f8f5f0', left: 0, paddingLeft: { xs: (ROOT_LAYOUT_PADDING_X.xs + LOGO_WIDTH) + 'px', md: (ROOT_LAYOUT_PADDING_X.md + LOGO_WIDTH) + 'px' } }}>
             <NavbarSubmenu submenus={submenus}></NavbarSubmenu>
           </Box>)
         : null
     }
-    <Box position='absolute' top={'50%'} left={100} sx={{ transform: 'translateY(-50%)'}}>
+    <Box position='absolute' top={'50%'} sx={{ transform: 'translateY(-50%)', left: { xs: ROOT_LAYOUT_PADDING_X.xs + 'px', md: ROOT_LAYOUT_PADDING_X.md + 'px' }}}>
       <Link href={'/'}>
-        <Image src='/logo.svg' alt='logo' width={50} height={50}></Image>
+        <Image src='/logo.svg' alt='logo' width={LOGO_WIDTH} height={0}></Image>
       </Link>
     </Box>
   </Box>);

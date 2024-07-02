@@ -7,6 +7,7 @@ import theme from '../theme';
 import { ReactElement } from 'react';
 import NavbarMenu from '@/components/navbar/navbar-menu';
 import { Box } from '@mui/material';
+import { ROOT_LAYOUT_PADDING_X } from './utils/layout';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
               <div>
                 <NavbarMenu></NavbarMenu>
               </div>
-              <Box sx={{ width: '100%' }} paddingX={22} paddingY={4}>
+              <Box sx={{ width: '100%', padding: { xs: `32px ${ROOT_LAYOUT_PADDING_X.xs}px`, md: `32px ${ROOT_LAYOUT_PADDING_X.md}px` } }}>
                 {children}
               </Box>
             </ThemeProvider>

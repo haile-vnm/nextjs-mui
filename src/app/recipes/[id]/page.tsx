@@ -1,11 +1,8 @@
 import PrintRecipe from '@/components/recipe/print-recipe';
 import SaveRecipe from '@/components/recipe/save-recipe';
-import Button from '@/components/ui/button';
 import { Recipe } from '@/models/recipe';
 import {
   AccessTimeOutlined,
-  Add,
-  LocalPrintshopOutlined,
   ScatterPlot
 } from '@mui/icons-material';
 import { Box, Breadcrumbs, Divider, Grid, Link, Typography } from '@mui/material';
@@ -89,7 +86,7 @@ export default async function ReceiptDetail({ params }: { params: { id: string }
         </Box>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Box>
+        <Box sx={{ display: 'flex', justifyContent: { xs: 'center' } }}>
           <Image src={recipe.coverImage} width={500} height={0} alt={recipe.title}></Image>
         </Box>
       </Grid>
