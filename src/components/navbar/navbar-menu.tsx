@@ -8,7 +8,7 @@ import NavbarSubmenu, { NavbarSubmenuItem } from './navbar-submenu';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ROOT_LAYOUT_PADDING_X } from '@/app/utils/layout';
+import { ROOT_LAYOUT_PADDING_X } from '@/utils/layout';
 
 interface StyledTabProps {
   label: string;

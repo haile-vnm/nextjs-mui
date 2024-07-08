@@ -7,7 +7,7 @@ import theme from '../theme';
 import { ReactElement } from 'react';
 import NavbarMenu from '@/components/navbar/navbar-menu';
 import { Box } from '@mui/material';
-import { ROOT_LAYOUT_PADDING_X } from './utils/layout';
+import { ROOT_LAYOUT_PADDING_X } from '../utils/layout';
 
 const inter = Inter({ subsets: ["latin"] });
 
